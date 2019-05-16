@@ -1,0 +1,33 @@
+<div class="card" (click)="deleteReport(event$)">
+  <div class="card-body">
+    <h3 class="card-title">Current Weather for {{ weatherReport.name }}</h3>
+    <p style="text-align: center">
+      <img
+        src="http://openweathermap.org/img/w/{{
+          weatherReport.weather[0].icon
+        }}.png"
+      />
+    </p>
+    <p class="card-text">Forecast: {{ weatherReport.weather[0].main }}</p>
+    <p class="card-text">
+      Current Temperature:
+      {{ (weatherReport.main.temp - 273.15) * (9 / 5) + 32 | number: "1.1-1" }}
+    </p>
+    <p class="card-text">
+      Today's High:
+      {{
+        (weatherReport.main.temp_max - 273.15) * (9 / 5) + 32 | number: "1.1-1"
+      }}
+    </p>
+    <p class="card-text">
+      Today's Low:
+      {{
+        (weatherReport.main.temp_min - 273.15) * (9 / 5) + 32 | number: "1.1-1"
+      }}
+    </p>
+    <p class="card-text">
+      Wind: {{ weatherReport.wind.speed }} from azimuth
+      {{ weatherReport.wind.deg }} degrees
+    </p>
+  </div>
+</div>
